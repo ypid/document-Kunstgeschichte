@@ -1,0 +1,47 @@
+\input{/home/rsadmin/Dokumente/LaTeX/Header/scrartcl}
+%\usepackage[nohyperlinks,nolist]{acronym}     % nolist,withpage,footnote %% Abkürzungsverzeichnis
+\input{/home/rsadmin/Dokumente/LaTeX/Header/standard}
+\input{/home/rsadmin/Dokumente/LaTeX/Header/scrbook}
+%\input{/home/rsadmin/Dokumente/LaTeX/Header/debug}
+\input{/home/rsadmin/Dokumente/LaTeX/Header/zeit}
+\input{/home/rsadmin/Dokumente/LaTeX/Header/graphic}
+\input{/home/rsadmin/Dokumente/LaTeX/Header/mathematik}
+%\input{/home/rsadmin/Dokumente/LaTeX/Header/spielchen}
+\input{/home/rsadmin/Dokumente/LaTeX/Header/layout}
+\renewcommand{\LettrineFontHook}{\color{blue}}
+\input{/home/rsadmin/Dokumente/LaTeX/Header/erweiterungen}
+\renewcommand{\printlicense}{
+  \ifthenelse{\equal{\LICENSE}{}}{}{\input{files/\LICENSE}}
+}
+\input{/home/rsadmin/Dokumente/LaTeX/Header/dokument-erweiterungen}
+\input{/home/rsadmin/Dokumente/LaTeX/Header/Schule/Schule}
+%\input{/home/rsadmin/Dokumente/LaTeX/Header/chemie}
+%\input{/home/rsadmin/Dokumente/LaTeX/Header/physik}
+\input{/usr/share/texmf-texlive/tex/generic/genmisc/random.tex}
+%% Spetzifische angaben
+\readgitstat{3}
+\input{files/metainfos2}
+
+\input{/home/rsadmin/Dokumente/LaTeX/Header/Schule/pdf-info}
+%\SetDraft{on}
+\ifDraft{
+  \input{/home/rsadmin/Dokumente/LaTeX/Header/fusszeile-free}
+  \ifoot{\thepage}\ofoot{\AUTHOR}
+  \cfoot{Projektversion: \printversion}
+  \usepackage[draft,nomargin,inline]{fixme}}{\usepackage{fixme}}
+\fxusetheme{colorsig}\renewcommand{\germanlistfixmename}{Verzeichnis der Anmerkungen}
+\newcommand{\BildName}{}
+\newcommand{\KuenstlerName}{}
+%%%Body
+\begin{document}
+\pdfbookmark[1]{Titelseite}{titelseite}\pagenumbering{Roman}\thispagestyle{empty}
+\input{files/titlepage/titlepage}
+\newpage\pdfbookmark[1]{\contentsname}{inhaltsverzeichnis}
+\tableofcontents	%% Inhaltsverzeichnis
+\vfill
+\listoffigures		%% Abbildungsverzeichnis
+%\listoftables		%% Tabellenverzeichnis
+%\lstlistoflistings	%% Quellcodeverzeichnis
+%\input{/home/rsadmin/Dokumente/LaTeX/Abkuerzungen/Chemie}
+
+\setcounter{headpages}{\value{page}}\newpage\pagenumbering{arabic}

@@ -1,0 +1,55 @@
+%\usepackage[nohyperlinks,nolist]{acronym}		% nolist,withpage,footnote %% Abkürzungsverzeichnis
+\usepackage{
+	physicsRS,
+	scrartclRS,
+	defaultRS,
+%	literatureRS,
+%	debugRS,
+	timeRS,
+	graphicRS,
+%	mathematicsRS,
+%	SourceCodeRS,
+%	gamesRS,
+	layoutRS,
+	scrbookRS,
+%	footingRS,
+	extensionsRS,
+	docExtensionsRS,
+	schoolRS,
+%	chemistryRS,
+	OReillyLatexHacks, %% \signed
+}
+\renewcommand{\LettrineFontHook}{\color{blue}}
+
+\input{random}
+%% Spetzifische angaben
+\readgitstat{7}
+\input{files/metainfos}
+
+\usepackage{
+	schoolPDFinfoRS,
+	tableRS,
+}
+%\SetDraft{on}
+\renewcommand{\licenseadd}{, mit Ausnahme der Bilder,\xspace}
+\ifDraft{
+  \input{/home/rsadmin/Dokumente/LaTeX/Header/fusszeile-free}
+  \ifoot{\thepage}\ofoot{\AUTHOR}
+  \cfoot{Projektversion: \printversion}
+  \usepackage[draft,nomargin,inline]{fixme}}{\usepackage{fixme}}
+\fxusetheme{colorsig}\renewcommand{\germanlistfixmename}{Verzeichnis der Anmerkungen}
+\newcommand{\BildName}{}
+\newcommand{\KuenstlerName}{}
+%%%Body
+\begin{document}
+\pdfbookmark[1]{\Titlepagename}{titlepage}\pagenumbering{Roman}\thispagestyle{empty}
+\input{files/titlepage/titlepage}
+\newpage\pdfbookmark[1]{\contentsname}{tableofcontents}
+\tableofcontents	%% Inhaltsverzeichnis
+\vfill
+\listoffigures		%% Abbildungsverzeichnis
+%\listoftables		%% Tabellenverzeichnis
+%\lstlistoflistings	%% Quellcodeverzeichnis
+%\input{/home/rsadmin/Dokumente/LaTeX/Abkuerzungen/Chemie}
+
+\setcounter{headpages}{\value{page}}\newpage\pagenumbering{arabic}

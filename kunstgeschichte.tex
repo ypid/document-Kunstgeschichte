@@ -1,0 +1,44 @@
+%% <Schule/Epochenheft.tex> Vorlageversion 1.1.2 <Robin Schneider>
+%%%Präambel
+%\RequirePackage{snapshot}		%% \jobname.dep
+%\listfiles	%% listfiles in die Logdatei
+\RequirePackage{RequirePackageRS}
+\documentclass[12pt,a4paper,ngerman,numbers=noenddot,toc=listof]{scrartcl}
+\input{files/praeambel}
+%%%%%%%%%%%
+\input{files/chapters/einleitung}
+\input{files/chapters/bildanalyse}
+
+\include{files/chapters/gotik}
+
+\include{files/chapters/renaissance}
+
+\include{files/chapters/barock}
+
+\ifDraft{\input{files/tmp-bild-input}}{}
+
+\include{files/chapters/romantik}	%% Klassizismus und Romantik
+
+\include{files/chapters/komposition}
+
+\include{files/chapters/realismus}
+
+\include{files/chapters/avantgarde}
+
+\include{files/chapters/impressionismus}
+
+\include{files/chapters/20jahrhundert}
+
+\input{files/chapters/abstrakt}
+
+\setcounter{sectionsV}{\value{section}}		%% Speichert die sectionnummer vor \appendix zwischen
+\appendix	%% Sorgt für Buchstaben im Inhaltsverzeichnis
+\include{files/chapters/kunst-zitate}
+
+\include{files/chapters/fachbegriffe}
+
+\newpage
+\input{files/chapters/metaphysische_landschaft}
+
+\input{files/endstuff}
+\end{document}
